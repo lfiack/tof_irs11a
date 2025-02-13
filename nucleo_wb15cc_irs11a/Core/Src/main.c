@@ -115,6 +115,8 @@ int main(void)
 	setMeasurementTimingBudget(300 * 1000UL);
 
 	uint16_t distance;
+
+	startContinuous(0);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
@@ -123,11 +125,15 @@ int main(void)
 	{
 		// uint16_t distance is the distance in millimeters.
 		// statInfo_t_VL53L0X distanceStr is the statistics read from the sensor.
-		distance = readRangeSingleMillimeters(&distanceStr);
+//		distance = readRangeSingleMillimeters(&distanceStr);
+//
+//		printf("Distance: %d\r\n", distance);
+//
+//		HAL_Delay(1000);
 
+		distance = readRangeContinuousMillimeters(&distanceStr);
 		printf("Distance: %d\r\n", distance);
 
-		HAL_Delay(1000);
 		/* USER CODE END WHILE */
 
 		/* USER CODE BEGIN 3 */
